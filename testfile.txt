@@ -1,14 +1,4 @@
----
-- name: test playbook
-  hosts: "scalefactory-vbox"
-  become: true
-  become_user: root
-  become_method: sudo
-  vars:
-    - ansible_ssh_private_key_file: .vagrant/machines/default/virtualbox/private_key
-
-  # roles:
-  tasks:
-    - name: copy a file
-      copy:
-        -
+#  config.ssh.insert_key = false
+#  config.ssh.password = "abcd"
+#   config.ssh.port = 2222
+  #, id: "ssh", auto_correct: true

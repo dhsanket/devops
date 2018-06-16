@@ -7,9 +7,13 @@
   become_method: sudo
   vars:
     - ansible_ssh_private_key_file: .vagrant/machines/default/virtualbox/private_key
+    - ansible_os_family: RedHat
+    - ansible_distribution: CentOS
+    - ansible_distribution_major_version: 6
 
   roles:
    - role: nginxinc.nginx-oss
+
   tasks:
     - name: copy a file
       copy:
@@ -18,3 +22,5 @@
        owner: root
        group: root
        mode: 0700
+    - name: start nginx
+      shell: sudo service nginx start
