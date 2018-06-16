@@ -57,6 +57,9 @@
     - name: install uwsgi
       shell: sudo pip install uwsgi
 
+    - name: install flask
+      shell: sudo pip install flask
+
     - name: copy in the webapp
       copy:
        src: webapp/
