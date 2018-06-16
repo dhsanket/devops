@@ -122,9 +122,7 @@ successfully added ansible tasks to
 
 Need python-devel.x86_64, lots of errors when installing
 
-### having timeout from 
-
-### Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi" 
+### Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi", but not yet serving through nginx proxy
  
 
 
