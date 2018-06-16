@@ -14,7 +14,7 @@ to provisin the server use ansible-playbook module. and call it like this.
 after ansible provisions the server. nginx will be available on host machine at localhost:1234
 
 
-# my work log and comments on troubleshooting and problems faced
+### my work log and comments on troubleshooting and problems faced
 
  downloading Vagrant \
  also considering using jupyter-notebook to serve a python code interpreter which will have the fizzbuzz test easy to run
