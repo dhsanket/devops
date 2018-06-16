@@ -94,6 +94,7 @@ Welcome to your Scale Factory virtual machine.
 success loggin into vagrant
 
 Using ansible to collect official nginx role to install onto vagrant box. \
+nginx role needs various variables to be configured to make installation for CentOS. 
 
 Vagrant trouble again. "insecure private key, making new one" then asks for password at login.
 --solution - vagrant sets up ssh port different each time I do vagrant up. so ssh login command has to be updated each time.
@@ -108,7 +109,16 @@ Ansible site.yml is configured to install nginx and run it.
 
 successfully started nginx on vagrant box. port forwarded to localhost:1234. nginx webpage shows up from browser.
 
-successfully used ansible to install python and python pip
+successfully added ansible tasks to 
+1. install required libraries for development
+2. python development modules are needed aswell, 
+3. it was tricky to find and install the right python-pip version because CentOS does not come with python dependencies
+4. installed and extracted python setup.py
+5. found an older more compatible version of python-pip after much googling https://bootstrap.pypa.io/2.6/get-pip.py
+6. for webserver stack installing jupyter-notebook on CentOS would involve compiling and Building the pyzmq. so decided to tackle nginx-uwsgi with python flask
+7. currently figuring out an error causing timeout from upstream uwsgi to nginx proxy. proxy_pass looks fine, issue is elsewhere.
+
+
 
 Need python-devel.x86_64, lots of errors when installing
 
