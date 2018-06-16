@@ -75,3 +75,12 @@ Welcome to your Scale Factory virtual machine.
 [vagrant@centos6 ~]$
 success loggin into vagrant
 
+Using ansible to collect official nginx role to install onto vagrant box. \
+
+Vagrant trouble again. "insecure private key, making new one" then asks for password at login.
+--solution - vagrant sets up ssh port different each time I do vagrant up. so ssh login command has to be updated each time.
+
+ 
+and again - Vagrant cannot forward the specified ports on this VM, since they
+would collide...
+

@@ -1,0 +1,2 @@
+# from ansible galaxy get nginx official role
+- src: nginxinc.nginx-oss
