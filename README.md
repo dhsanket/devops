@@ -1,5 +1,5 @@
 # lifeworks
- downloading Vagrant 
+ downloading Vagrant \
  also considering using jupyter-notebook to serve a python code interpreter which will have the fizzbuzz test easy to run
  vagarant will have to port forward jupyter-notebook to host port so that notebook can be accessed
  wrote fizzbuzz in python using ipython notebook interpreter locally
@@ -15,10 +15,10 @@
 >            print str(i)
 
  checked results of fizzbuzz to reasonable depth
- 1
- 2
- fizz
- 4
+ 1\
+ 2\
+ fizz\
+ 4\
  buzz
  fizz
  7
