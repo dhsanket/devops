@@ -6,6 +6,7 @@
 3. can ssh into vagrant machine as vagrant@127.0.0.1 - double check ssh port as vagrant swaps it on various loads
 4. adjust location of your private key with below command.
 > ssh -i /home/sanket-rhythmone/lifeworks/.vagrant/machines/default/virtualbox/private_key -p 2200 vagrant@127.0.0.1
+> ansible ssh port config can be found in the lifeworks-inventory file
 
 5. you will need ansible version 2.5.5. preferably inside an ansible virtualenv so that you do not pollute your environment
 to provisin the server use ansible-playbook module. and call it like this.
