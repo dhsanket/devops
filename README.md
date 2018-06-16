@@ -111,16 +111,12 @@ successfully started nginx on vagrant box. port forwarded to localhost:1234. ngi
 
 successfully added ansible tasks to 
 1. install required libraries for development
-2. python development modules are needed aswell, 
+2. python development modules are needed aswell, python-devel.x86_64, lots of errors when installing
 3. it was tricky to find and install the right python-pip version because CentOS does not come with python dependencies
 4. installed and extracted python setup.py
 5. found an older more compatible version of python-pip after much googling https://bootstrap.pypa.io/2.6/get-pip.py
 6. for webserver stack installing jupyter-notebook on CentOS would involve compiling and Building the pyzmq. so decided to tackle nginx-uwsgi with python flask
 7. currently figuring out an error causing timeout from upstream uwsgi to nginx proxy. proxy_pass looks fine, issue is elsewhere.
-
-
-
-Need python-devel.x86_64, lots of errors when installing
 
 ### Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi", but not yet serving through nginx proxy
  
