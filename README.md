@@ -14,28 +14,28 @@
 >        else:
 >            print str(i)
 
- checked results of fizzbuzz to reasonable depth
+ checked results of fizzbuzz to reasonable depth\
  1\
  2\
  fizz\
  4\
- buzz
- fizz
- 7
- 8
- fizz
- buzz
- 11
- fizz
- 13
- 14
- fizubuzz
- 16
- 17
- fizz
- 19
+ buzz\
+ fizz\
+ 7\
+ 8\
+ fizz\
+ buzz\
+ 11\
+ fizz\
+ 13\
+ 14\
+ fizubuzz\
+ 16\
+ 17\
+ fizz\
+ 19\
 
-tried vagrant up. it fails with plugin conflicting dependecy errors. 
+tried vagrant up. it fails with plugin conflicting dependecy errors.\ 
  trying vagrant plugin expunge --reinstall
  "vagrant expunge has been declined"
 uninstalled and reinstalled vagrant.
