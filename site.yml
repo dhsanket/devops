@@ -25,6 +25,7 @@
     - name: install development software
       yum: pkg={{item}} state=installed
       with_items:
+       - python-devel.x86_64
        - zlib-devel
        - openssl-devel
        - sqlite-devel
@@ -42,4 +43,24 @@
     - name: get pip
       shell: curl https://bootstrap.pypa.io/2.6/get-pip.py -o get-pip.py
 
-    - shell: sudo python get-pip.py
+    - name: install pip
+      shell: sudo python get-pip.py
+
+    - name: copy fizzbuzz into vagrant machine
+      copy:
+       src: fizzbuzz.py
+       dest: /home/vagrant/fizzbuzz.py
+       owner: root
+       group: root
+       mode: 0777
+
+    - name: install uwsgi
+      shell: sudo pip install uwsgi
+
+    - name: copy in the webapp
+      copy:
+       src: webapp/
+       dest: /home/vagrant/webapp
+       owner: root
+       group: root
+       mode: 0777
