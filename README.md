@@ -84,3 +84,5 @@ Vagrant trouble again. "insecure private key, making new one" then asks for pass
 and again - Vagrant cannot forward the specified ports on this VM, since they
 would collide...
 
+successfully started nginx on vagrant box. port forwarded to localhost:1234. nginx webpage shows up from browser.
+
