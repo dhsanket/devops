@@ -66,7 +66,7 @@ vagrant plugin install vagrant-hostmanager
  trying vagrant again
  1. vagrant up 
  vagrant comes up !!!
-default: SSH address: 127.0.0.1:2222
+> default: SSH address: 127.0.0.1:2222
     default: SSH username: vagrant
     default: SSH auth method: private key
 ==> default: Machine booted and ready!
@@ -96,7 +96,7 @@ Using ansible to collect official nginx role to install onto vagrant box. \
 
 Vagrant trouble again. "insecure private key, making new one" then asks for password at login.
 --solution - vagrant sets up ssh port different each time I do vagrant up. so ssh login command has to be updated each time.
-
+> ansible ssh port config can be found in the lifeworks-inventory file
  
 and again - Vagrant cannot forward the specified ports on this VM, since they
 would collide...Solution - discovered I need to destroy previous running vagrant instances to eliminate this error.
@@ -111,7 +111,9 @@ successfully used ansible to install python and python pip
 
 Need python-devel.x86_64, lots of errors when installing
 
-# Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi" 
+### having timeout from 
+
+### Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi" 
  
 
 
