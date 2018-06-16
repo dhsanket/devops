@@ -1,4 +1,26 @@
 # lifeworks
+
+### getting the vm up and installing nginx, python-pip, 
+clone git repository - it is public
+vagrant up - should bring up vagrant guest machine
+can ssh into vagrant machine as vagrant@127.0.0.1 - double check ssh port as vagrant swaps it on various loads
+also adjust location of your private key with below command.
+ssh -i /home/sanket-rhythmone/lifeworks/.vagrant/machines/default/virtualbox/private_key -p 2200 vagrant@127.0.0.1
+
+you will need ansible version 2.5.5. preferably inside an ansible virtualenv so that you do not pollute your environment
+to provisin the server use ansible-playbook module. and call it like this.
+ansible-playbook -i lifeworks-inventory site.yml
+
+after ansible provisions the server. nginx will be available on host machine at localhost:1234
+
+
+
+
+
+
+
+# my work log and comments on troubleshooting and problems faced
+
  downloading Vagrant \
  also considering using jupyter-notebook to serve a python code interpreter which will have the fizzbuzz test easy to run
  vagarant will have to port forward jupyter-notebook to host port so that notebook can be accessed
@@ -93,6 +115,9 @@ successfully started nginx on vagrant box. port forwarded to localhost:1234. ngi
 successfully used ansible to install python and python pip
 
 Need python-devel.x86_64, lots of errors when installing
+
+# Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi" 
+ 
 
 
 
