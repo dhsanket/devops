@@ -84,5 +84,12 @@ Vagrant trouble again. "insecure private key, making new one" then asks for pass
 and again - Vagrant cannot forward the specified ports on this VM, since they
 would collide...Solution - discovered I need to destroy previous running vagrant instances to eliminate this error.
 
+RUN ANSIBLE using this command - ansible-playbook -i lifeworks-inventory site.yml
+Ansible site.yml is configured to install nginx and run it.
+
 successfully started nginx on vagrant box. port forwarded to localhost:1234. nginx webpage shows up from browser.
+
+successfully used ansible to install python and python pip
+
+
 

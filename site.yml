@@ -15,12 +15,31 @@
    - role: nginxinc.nginx-oss
 
   tasks:
-    - name: copy a file
-      copy:
-       src: testfile.txt
-       dest: /home/vagrant/testfile
-       owner: root
-       group: root
-       mode: 0700
+
     - name: start nginx
       shell: sudo service nginx start
+
+    - name: install development tools
+      shell: yum groupinstall -y 'development tools'
+
+    - name: install development software
+      yum: pkg={{item}} state=installed
+      with_items:
+       - zlib-devel
+       - openssl-devel
+       - sqlite-devel
+       - bzip2-devel
+
+    - name: get python setup.py
+      shell: wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz
+
+    - name: Extract the files from the archive
+      shell: tar -xvf setuptools-1.4.2.tar.gz
+
+    - name: Enter the extracted directory
+      shell: cd setuptools-1.4.2 && sudo python setup.py install
+
+    - name: get pip
+      shell: curl https://bootstrap.pypa.io/2.6/get-pip.py -o get-pip.py
+
+    - shell: sudo python get-pip.py
