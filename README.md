@@ -36,7 +36,7 @@
  fizz\
  19\
 
-tried vagrant up. it fails with plugin conflicting dependecy errors.\ 
+tried vagrant up. it fails with plugin conflicting dependecy errors.  \ 
  trying vagrant plugin expunge --reinstall
  "vagrant expunge has been declined"
 uninstalled and reinstalled vagrant.
