@@ -92,5 +92,7 @@ successfully started nginx on vagrant box. port forwarded to localhost:1234. ngi
 
 successfully used ansible to install python and python pip
 
+Need python-devel.x86_64, lots of errors when installing
+
 
 
