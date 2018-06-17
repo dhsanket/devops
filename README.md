@@ -120,6 +120,7 @@ successfully added ansible tasks to
 
 ### Present State- Nginx is brought up, python-flask webapp files are made to work with "uwsgi", but not yet serving through nginx proxy
  
-
+uwsgi --socket 127.0.0.1:8080 --protocol=http -w WSGI:app &
+uwsgi --ini myconf.ini --socket 127.0.0.1:8080 --protocol=http -w WSGI:app &
 
 

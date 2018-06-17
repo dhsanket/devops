@@ -5,6 +5,7 @@
   become: true
   become_user: root
   become_method: sudo
+
   vars:
     - ansible_ssh_private_key_file: .vagrant/machines/default/virtualbox/private_key
     - ansible_os_family: RedHat
@@ -15,9 +16,13 @@
    - role: nginxinc.nginx-oss
 
   tasks:
-
-    - name: start nginx
-      shell: sudo service nginx start
+    - name: copy nginx conf
+      copy:
+       src: nginx.conf
+       dest: /etc/nginx/nginx.conf
+       owner: root
+       group: root
+       mode: 0744
 
     - name: install development tools
       shell: yum groupinstall -y 'development tools'
@@ -26,6 +31,8 @@
       yum: pkg={{item}} state=installed
       with_items:
        - python-devel.x86_64
+       - epel-release
+       - ufw
        - zlib-devel
        - openssl-devel
        - sqlite-devel
@@ -46,6 +53,12 @@
     - name: install pip
       shell: sudo python get-pip.py
 
+    - name: pip install uwsgi
+      shell: sudo pip install uwsgi
+
+    - name: pip install flask
+      shell: sudo pip install flask
+
     - name: copy fizzbuzz into vagrant machine
       copy:
        src: fizzbuzz.py
@@ -54,12 +67,6 @@
        group: root
        mode: 0777
 
-    - name: install uwsgi
-      shell: sudo pip install uwsgi
-
-    - name: install flask
-      shell: sudo pip install flask
-
     - name: copy in the webapp
       copy:
        src: webapp/
@@ -67,3 +74,33 @@
        owner: root
        group: root
        mode: 0777
+
+    - name: set environment variable for flask flaskapp
+      lineinfile: dest=/home/vagrant/.bashrc line='export FLASK_APP=/home/vagrant/webapp/flaskapp/flaskapp.py' insertafter='EOF' state=present
+
+    - name: set environment variable for flask flaskapp
+      lineinfile: dest=/home/vagrant/.bashrc line='export FLASK_ENV=development' insertafter='EOF' state=present
+
+    - name: Source the bashrc file
+      shell: source /home/vagrant/.bashrc
+
+    - name: start flask
+      shell: "(nohup python flaskapp.py >/dev/null 2>&1 &)"
+      become: yes
+      args:
+       chdir: /home/vagrant/webapp/flaskapp/
+
+    - name: start uwsgi
+      shell: "(uwsgi --ini uwsgi.ini -w WSGI:flaskapp >/dev/null 2>&1 &)"
+#      shell: "(uwsgi --ini uwsgi.ini --socket 127.0.0.1:8080 --protocol=http -w WSGI:flaskapp >/dev/null 2>&1 &)"
+#      shell: "( uwsgi --ini uwsgi.ini --manage-script-name --mount /=flaskapp:flaskapp >/dev/null 2>&1 &)"
+#      shell: "(uwsgi --ini uwsgi.ini --socket 127.0.0.1:8080 --protocol=http -w WSGI:flaskapp >/dev/null 2>&1 &)"
+      args:
+       chdir: /home/vagrant/webapp
+      become: yes
+
+    - name: stop nginx
+      shell: sudo service nginx stop
+
+    - name: start nginx
+      shell: sudo service nginx start
