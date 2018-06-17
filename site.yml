@@ -27,16 +27,17 @@
     - name: install development tools
       shell: yum groupinstall -y 'development tools'
 
-    - name: install development software
+    - name: install required tools
       yum: pkg={{item}} state=installed
       with_items:
        - python-devel.x86_64
        - epel-release
-       - ufw
        - zlib-devel
        - openssl-devel
        - sqlite-devel
        - bzip2-devel
+       - wget
+       - nano
 
     - name: get python setup.py
       shell: wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz

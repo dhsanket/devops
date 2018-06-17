@@ -1,3 +1,2 @@
 [scalefactory-vbox]
 box1	ansible_host=127.0.0.1 ansible_ssh_port=2222 ansible_connection=ssh ansible_user=vagrant
-
