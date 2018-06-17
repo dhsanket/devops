@@ -54,9 +54,6 @@
     - name: install pip
       shell: sudo python get-pip.py
 
-    - name: pip install uwsgi
-      shell: sudo pip install uwsgi
-
     - name: pip install flask
       shell: sudo pip install flask
 
